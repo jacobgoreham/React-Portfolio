@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Contact() {
+export default function Blog() {
   return (
     <div style={{ backgroundColor: "#222222", padding: "20px" }}>
       <div
@@ -26,7 +26,7 @@ export default function Contact() {
             fontSize: "36px",
           }}
         >
-          Contact
+          Projects
         </h1>
       </div>
       <p style={{ color: "#FFFFFF", fontSize: "20px", lineHeight: "1.5" }}>

@@ -7,15 +7,21 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
+import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor: "#333",
+    height: "100vh",
   },
-  title: {
-    flexGrow: 1,
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  icon: {
+    color: "#fff",
   },
   tabs: {
     "& .MuiTabs-root": {
@@ -40,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  page: {
+    backgroundColor: "#333",
+    padding: "20px",
+    height: "calc(100% - 64px)",
+    boxSizing: "border-box",
+  },
 }));
 
 export default function PortfolioContainer() {
@@ -56,8 +68,8 @@ export default function PortfolioContainer() {
         return <Home />;
       case "About":
         return <About handlePageChange={handlePageChange} />;
-      case "Blog":
-        return <Blog />;
+      case "Projects":
+        return <Projects />;
       case "Contact":
         return <Contact />;
       default:
@@ -68,10 +80,9 @@ export default function PortfolioContainer() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            My App
-          </Typography>
+        <Toolbar className={classes.header}>
+          <Typography variant="h6">My App</Typography>
+          <div className={classes.icon}>{/* Insert Icon here */}</div>
         </Toolbar>
       </AppBar>
       <Tabs
@@ -83,10 +94,10 @@ export default function PortfolioContainer() {
       >
         <Tab label="Home" value="Home" />
         <Tab label="About" value="About" />
-        <Tab label="Blog" value="Blog" />
+        <Tab label="Projects" value="Projects" />
         <Tab label="Contact" value="Contact" />
       </Tabs>
-      {renderPage()}
+      <div className={classes.page}>{renderPage()}</div>
     </div>
   );
 }
