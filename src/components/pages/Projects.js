@@ -3,13 +3,15 @@ import React from "react";
 const projects = [
   {
     name: "Jacobs' JATE",
-    description: "Just . Another . Text . Editor",
+    description:
+      "Highlights: Javascript, Webpack, Express.js, Concurrently, Nodemon",
     imageSrc: "../images/screenshot1.png",
     githubLink: "https://github.com/jacobgoreham/Jacobs-PWA",
   },
   {
     name: "WaterWise",
-    description: "The Repo for 'the Goat Packs' water discussion board.",
+    description: "Highlights: CSS, Session, Authentification, HandleBars",
+    //The Repo for 'the Goat Packs' water discussion board.
     imageSrc: "../images/screenshot2.png",
     githubLink: "https://github.com/sullivann7789/waterwise",
   },
@@ -20,32 +22,48 @@ const projects = [
     imageSrc: " ../images/screenshot3.png",
     githubLink: "https://cmadrid48.github.io/gitMovie/",
   },
+  {
+    name: "Note Pad",
+    description:
+      "Note Pad is simply a place to keep all the notes you've taken!",
+    imageSrc: " ../images/screenshot4.png",
+    githubLink: "https://jacobs-note-taker.herokuapp.com/",
+  },
 ];
+//https://jacobs-note-taker.herokuapp.com/
 
 export default function Blog() {
   return (
     <div style={{ backgroundColor: "#222222", padding: "20px" }}>
+      <script>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+      </script>
       <div
         style={{
           backgroundColor: "#333333",
           padding: "20px",
           marginBottom: "20px",
           borderRadius: "10px",
+
           transition: "all 0.3s ease-in-out",
         }}
         onMouseEnter={(e) =>
-          (e.currentTarget.style.backgroundColor = "#2C3E90")
+          (e.currentTarget.style.backgroundColor = "#3f51b5")
         }
+        // background: "linear-gradient(to right, #ff4060, #3f51b5)",
+
         onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor = "#333333")
         }
       >
         <h1
           style={{
-            color: "#FFFFFF",
+            color: "#ff4060",
             textAlign: "center",
             textTransform: "uppercase",
             fontSize: "36px",
+            fontFamily: "Bruno Ace SC",
           }}
         >
           Projects
@@ -66,7 +84,7 @@ export default function Blog() {
               transform: "translateY(0)",
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#2C3E90")
+              (e.currentTarget.style.backgroundColor = "#3f51b5")
             }
             onMouseLeave={(e) =>
               (e.currentTarget.style.backgroundColor = "#333333")
@@ -88,17 +106,34 @@ export default function Blog() {
                 rel="noopener noreferrer"
               >
                 <img
-                  style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                  style={{
+                    height: "100%",
+                    width: "100%",
+                    objectFit: "cover",
+                    border: "5px solid #3f51b5",
+                  }}
                   src={project.imageSrc}
                   alt="Project Screenshot"
                 />
               </a>
             </div>
             <div style={{ textAlign: "center" }}>
-              <h3 style={{ color: "#FFFFFF", marginTop: "10px" }}>
+              <h3
+                style={{
+                  color: "#ff4060",
+                  marginTop: "10px",
+                  fontFamily: "Bruno Ace SC",
+                }}
+              >
                 {project.name}
               </h3>
-              <p style={{ color: "#FFFFFF", marginTop: "10px" }}>
+              <p
+                style={{
+                  color: "#ff4060",
+                  marginTop: "10px",
+                  fontFamily: "Space Mono",
+                }}
+              >
                 {project.description}
               </p>
             </div>

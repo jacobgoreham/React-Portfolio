@@ -12,12 +12,13 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "#333",
+    backgroundColor: "#222",
     height: "100vh",
   },
   header: {
     display: "flex",
     justifyContent: "space-between",
+    background: "linear-gradient(to right, #ff4060, #3f51b5)",
   },
   icon: {
     color: "#fff",
@@ -26,18 +27,21 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTab-root": {
       textTransform: "none",
       fontSize: "1.1rem",
+      color: "#ff4060",
       minWidth: 0,
       marginRight: theme.spacing(3),
       "&:last-child": {
         marginRight: 0,
       },
       "&:hover": {
-        backgroundColor: "rgba(0,0,0,0.1)",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
         borderRadius: "10px",
       },
       "&.Mui-selected": {
         backgroundColor: "rgba(0,0,0,0.2)",
         borderRadius: "10px",
+        color: "#3f51b5",
+        fontFamily: "Bruno Ace SC",
       },
     },
   },
@@ -49,16 +53,16 @@ const useStyles = makeStyles((theme) => ({
   },
   tabRoot: {
     "&:hover": {
-      backgroundColor: "rgba(0,0,0,0.1)",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       borderRadius: "10px",
     },
     "&.Mui-selected": {
-      backgroundColor: "rgba(0,0,0,0.2)",
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
       borderRadius: "10px",
     },
   },
   page: {
-    backgroundColor: "#333",
+    backgroundColor: "#222",
     padding: "20px",
     height: "calc(100% - 64px)",
     boxSizing: "border-box",
@@ -97,7 +101,8 @@ export default function PortfolioContainer() {
         @import
         url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
       </style>
-      <AppBar position="static">
+
+      <AppBar position="static" className={classes.header}>
         <Toolbar className={classes.header}>
           <Typography variant="h6" className={classes.title}>
             Jacob
