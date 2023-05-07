@@ -12,7 +12,7 @@ export default function Home() {
           transition: "all 0.3s ease-in-out",
         }}
         onMouseEnter={(e) =>
-          (e.currentTarget.style.backgroundColor = "#2C3E50")
+          (e.currentTarget.style.backgroundColor = "#2C3E90")
         }
         onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor = "#333333")
