@@ -61,6 +61,24 @@ export default function Blog() {
               marginRight: "20px",
               borderRadius: "10px",
               width: "300px",
+              transition: "all 0.3s ease-in-out",
+              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+              transform: "translateY(0)",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#2C3E90")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "#333333")
+            }
+            onClick={(e) => {
+              const element = e.currentTarget;
+              if (element) {
+                element.style.backgroundColor = "#34D399";
+                setTimeout(() => {
+                  element.style.backgroundColor = "#333333";
+                }, 300);
+              }
             }}
           >
             <div style={{ height: "200px", marginBottom: "10px" }}>
