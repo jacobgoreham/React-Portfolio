@@ -138,7 +138,7 @@ export default function Contact() {
         </div>
         <div style={{ flex: 1, marginLeft: "20px" }}>
           <img
-            src={"/components/images/screenshot1.png"}
+            src="../images/selfie.png"
             alt="Profile"
             style={{ width: "100%" }}
           />

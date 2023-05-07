@@ -1,5 +1,27 @@
 import React from "react";
 
+const projects = [
+  {
+    name: "Jacobs' JATE",
+    description: "Just . Another . Text . Editor",
+    imageSrc: "../images/screenshot1.png",
+    githubLink: "https://github.com/jacobgoreham/Jacobs-PWA",
+  },
+  {
+    name: "WaterWise",
+    description: "The Repo for 'the Goat Packs' water discussion board.",
+    imageSrc: "../images/screenshot2.png",
+    githubLink: "https://github.com/sullivann7789/waterwise",
+  },
+  {
+    name: "GitMovie",
+    description:
+      "GitMovie was another group project that turned out extremeley well!",
+    imageSrc: " ../images/screenshot3.png",
+    githubLink: "https://cmadrid48.github.io/gitMovie/",
+  },
+];
+
 export default function Blog() {
   return (
     <div style={{ backgroundColor: "#222222", padding: "20px" }}>
@@ -29,11 +51,42 @@ export default function Blog() {
           Projects
         </h1>
       </div>
-      <p style={{ color: "#FFFFFF", fontSize: "20px", lineHeight: "1.5" }}>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
-        Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
-      </p>
-      {/* <button onClick={() => props.handlePageChange("Home")}>Go to Home</button> */}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            style={{
+              backgroundColor: "#333333",
+              padding: "20px",
+              marginRight: "20px",
+              borderRadius: "10px",
+              width: "300px",
+            }}
+          >
+            <div style={{ height: "200px", marginBottom: "10px" }}>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                  src={project.imageSrc}
+                  alt="Project Screenshot"
+                />
+              </a>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <h3 style={{ color: "#FFFFFF", marginTop: "10px" }}>
+                {project.name}
+              </h3>
+              <p style={{ color: "#FFFFFF", marginTop: "10px" }}>
+                {project.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
