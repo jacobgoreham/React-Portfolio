@@ -26,7 +26,7 @@ export default function About(props) {
             fontSize: "36px",
           }}
         >
-          About Page
+          Resume Page
         </h1>
       </div>
       <p style={{ color: "#FFFFFF", fontSize: "20px", lineHeight: "1.5" }}>

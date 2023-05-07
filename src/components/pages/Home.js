@@ -1,21 +1,39 @@
-import React from 'react';
+import React from "react";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
-        velit, lobortis ut magna varius, blandit rhoncus sem. Morbi lacinia nisi
-        ac dui fermentum, sed luctus urna tincidunt. Etiam ut feugiat ex. Cras
-        non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna imperdiet
-        ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras
-        rutrum ligula in tincidunt commodo. Morbi sit amet mollis orci, in
-        tristique ex. Donec nec ornare elit. Donec blandit est sed risus feugiat
-        porttitor. Vestibulum molestie hendrerit massa non consequat. Vestibulum
-        vitae lorem tortor. In elementum ultricies tempus. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus.
+    <div style={{ backgroundColor: "#222222", padding: "20px" }}>
+      <div
+        style={{
+          backgroundColor: "#333333",
+          padding: "20px",
+          marginBottom: "20px",
+          borderRadius: "10px",
+          transition: "all 0.3s ease-in-out",
+        }}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.backgroundColor = "#2C3E50")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.backgroundColor = "#333333")
+        }
+      >
+        <h1
+          style={{
+            color: "#FFFFFF",
+            textAlign: "center",
+            textTransform: "uppercase",
+            fontSize: "36px",
+          }}
+        >
+          About Me Page
+        </h1>
+      </div>
+      <p style={{ color: "#FFFFFF", fontSize: "20px", lineHeight: "1.5" }}>
+        Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
+        Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
       </p>
+      {/* <button onClick={() => props.handlePageChange("Home")}>Go to Home</button> */}
     </div>
   );
 }

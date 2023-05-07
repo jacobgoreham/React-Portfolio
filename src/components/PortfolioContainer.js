@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+
+import { AppBar, Toolbar, Typography, Tabs, Tab } from "@material-ui/core";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +23,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
   tabs: {
-    "& .MuiTabs-root": {
-      display: "flex",
-      justifyContent: "center",
-    },
     "& .MuiTab-root": {
       textTransform: "none",
       fontSize: "1.1rem",
@@ -46,11 +41,30 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  tabsFlexContainer: {
+    justifyContent: "center",
+  },
+  tabsScroller: {
+    flexGrow: 0,
+  },
+  tabRoot: {
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,0.1)",
+      borderRadius: "10px",
+    },
+    "&.Mui-selected": {
+      backgroundColor: "rgba(0,0,0,0.2)",
+      borderRadius: "10px",
+    },
+  },
   page: {
     backgroundColor: "#333",
     padding: "20px",
     height: "calc(100% - 64px)",
     boxSizing: "border-box",
+  },
+  title: {
+    fontFamily: "Bruno Ace SC",
   },
 }));
 
@@ -79,10 +93,24 @@ export default function PortfolioContainer() {
 
   return (
     <div className={classes.root}>
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+      </style>
       <AppBar position="static">
         <Toolbar className={classes.header}>
-          <Typography variant="h6">My App</Typography>
+          <Typography variant="h6" className={classes.title}>
+            Jacob
+          </Typography>
           <div className={classes.icon}>{/* Insert Icon here */}</div>
+
+          <a
+            href="https://github.com/jacobgoreham"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHubIcon className={classes.icon} />
+          </a>
         </Toolbar>
       </AppBar>
       <Tabs
@@ -90,12 +118,28 @@ export default function PortfolioContainer() {
         onChange={handlePageChange}
         indicatorColor="primary"
         textColor="primary"
-        className={classes.tabs}
+        classes={{
+          root: classes.tabs,
+          flexContainer: classes.tabsFlexContainer,
+          scroller: classes.tabsScroller,
+        }}
       >
-        <Tab label="Home" value="Home" />
-        <Tab label="About" value="About" />
-        <Tab label="Projects" value="Projects" />
-        <Tab label="Contact" value="Contact" />
+        <Tab
+          label="About Me"
+          value="Home"
+          classes={{ root: classes.tabRoot }}
+        />
+        <Tab label="Resume" value="About" classes={{ root: classes.tabRoot }} />
+        <Tab
+          label="Portfolio"
+          value="Projects"
+          classes={{ root: classes.tabRoot }}
+        />
+        <Tab
+          label="Contact"
+          value="Contact"
+          classes={{ root: classes.tabRoot }}
+        />
       </Tabs>
       <div className={classes.page}>{renderPage()}</div>
     </div>
