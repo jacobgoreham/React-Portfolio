@@ -29,9 +29,21 @@ export default function About(props) {
           Resume Page
         </h1>
       </div>
-      <p style={{ color: "#FFFFFF", fontSize: "20px", lineHeight: "1.5" }}>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam.
-        Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed
+      <p
+        style={{
+          color: "#FFFFFF",
+          textAlign: "center",
+          fontSize: "20px",
+          fontFamily: "Space Mono",
+          margin: "20px",
+        }}
+      >
+        My name is Jacob Goreham. I am a FullStack Developer with 1 year of
+        experience. Front End Technologies I am proficient in: HTML, CSS,
+        JavaScript, JQuery, Responsive Design, React, BootStrap. The Back End
+        Technologies I'm proficient in: APIs, Node, Express, MySQL, Sequelize,
+        MongoDB, Mongoose, REST, GraphQL, MERN Stack. and have worked on various
+        projects including GitMovie, WaterWise, and Note Pad.
       </p>
       {/* <button onClick={() => props.handlePageChange("Home")}>Go to Home</button> */}
     </div>

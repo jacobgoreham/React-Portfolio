@@ -29,6 +29,20 @@ const projects = [
     imageSrc: " ../images/screenshot4.png",
     githubLink: "https://jacobs-note-taker.herokuapp.com/",
   },
+  {
+    name: "Note Pad2",
+    description:
+      "Note Pad is simply a place to keep all the notes you've taken!",
+    imageSrc: " ../images/screenshot4.png",
+    githubLink: "https://jacobs-note-taker.herokuapp.com/",
+  },
+  {
+    name: "Note Pad3",
+    description:
+      "Note Pad is simply a place to keep all the notes you've taken!",
+    imageSrc: " ../images/screenshot4.png",
+    githubLink: "https://jacobs-note-taker.herokuapp.com/",
+  },
 ];
 //https://jacobs-note-taker.herokuapp.com/
 
@@ -45,14 +59,11 @@ export default function Blog() {
           padding: "20px",
           marginBottom: "20px",
           borderRadius: "10px",
-
           transition: "all 0.3s ease-in-out",
         }}
         onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor = "#3f51b5")
         }
-        // background: "linear-gradient(to right, #ff4060, #3f51b5)",
-
         onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor = "#333333")
         }
@@ -69,14 +80,22 @@ export default function Blog() {
           Projects
         </h1>
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          gap: "20px",
+        }}
+      >
         {projects.map((project, index) => (
           <div
             key={index}
             style={{
               backgroundColor: "#333333",
               padding: "20px",
-              marginRight: "20px",
               borderRadius: "10px",
               width: "300px",
               transition: "all 0.3s ease-in-out",

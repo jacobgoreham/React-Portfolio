@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +20,16 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     background: "linear-gradient(to right, #ff4060, #3f51b5)",
+  },
+  footer: {
+    backgroundColor: "#222",
+    color: "#fff",
+    textAlign: "center",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    padding: theme.spacing(2),
   },
   icon: {
     color: "#fff",
@@ -146,7 +157,51 @@ export default function PortfolioContainer() {
           classes={{ root: classes.tabRoot }}
         />
       </Tabs>
+
       <div className={classes.page}>{renderPage()}</div>
+      <div className={classes.footer}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <a
+            href="https://www.linkedin.com/in/jacob-goreham-52a013179/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "#3f51b5",
+              color: "#FFFFFF",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              margin: "10px",
+              textDecoration: "none",
+              fontFamily: "Space Mono",
+              fontSize: "16px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <LinkedInIcon style={{ marginRight: "10px" }} />
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/jacobgoreham"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "#3f51b5",
+              color: "#FFFFFF",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              margin: "10px",
+              textDecoration: "none",
+              fontFamily: "Space Mono",
+              fontSize: "16px",
+            }}
+          >
+            <GitHubIcon style={{ marginRight: "5px" }} />
+            GitHub
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
