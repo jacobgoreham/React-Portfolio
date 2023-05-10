@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: "#222",
-    height: "100vh",
+    height: "100%",
   },
   header: {
     display: "flex",
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(to right, #ff4060, #3f51b5)",
   },
   footer: {
-    backgroundColor: "#222",
     color: "#fff",
     textAlign: "center",
     position: "absolute",
@@ -75,8 +74,9 @@ const useStyles = makeStyles((theme) => ({
   page: {
     backgroundColor: "#222",
     padding: "20px",
-    height: "calc(100% - 64px)",
+    height: "100%",
     boxSizing: "border-box",
+    minHeight: "calc(100vh - 64px)",
   },
   title: {
     fontFamily: "Bruno Ace SC",
@@ -159,7 +159,10 @@ export default function PortfolioContainer() {
       </Tabs>
 
       <div className={classes.page}>{renderPage()}</div>
-      <div className={classes.footer}>
+      <div
+        className={classes.footer}
+        style={{ position: "fixed", bottom: "0", width: "100%" }}
+      >
         <div style={{ display: "flex", justifyContent: "center" }}>
           <a
             href="https://www.linkedin.com/in/jacob-goreham-52a013179/"
@@ -178,7 +181,9 @@ export default function PortfolioContainer() {
               alignItems: "center",
             }}
           >
-            <LinkedInIcon style={{ marginRight: "10px" }} />
+            <LinkedInIcon
+              style={{ marginRight: "10px", justifyContent: "center" }}
+            />
             LinkedIn
           </a>
 
@@ -195,9 +200,13 @@ export default function PortfolioContainer() {
               textDecoration: "none",
               fontFamily: "Space Mono",
               fontSize: "16px",
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            <GitHubIcon style={{ marginRight: "5px" }} />
+            <GitHubIcon
+              style={{ marginRight: "5px", justifyContent: "center" }}
+            />
             GitHub
           </a>
         </div>

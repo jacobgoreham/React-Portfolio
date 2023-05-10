@@ -1,6 +1,100 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
+  contactContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: theme.spacing(2),
+
+    borderRadius: theme.spacing(1),
+  },
+  contactTitle: {
+    color: "#ff4060",
+    textAlign: "center",
+    textTransform: "uppercase",
+    fontSize: "36px",
+    fontFamily: "Bruno Ace SC",
+  },
+  root: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#222222",
+    padding: theme.spacing(2),
+    width: "80%",
+  },
+  content: {
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
+  },
+  title: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    color: "#ff4060",
+    marginBottom: theme.spacing(2),
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: theme.spacing(2),
+    width: "70%",
+    "& .MuiInputBase-input": {
+      color: "#ff4060",
+    },
+  },
+  image: {
+    width: "50%",
+    height: "50%",
+    borderRadius: "50%",
+    marginLeft: "auto",
+  },
+  textField: {
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#3f51b5",
+      },
+      "&:hover fieldset": {
+        borderColor: "#3f51b5",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#3f51b5",
+      },
+      "& .MuiInputBase-input": {
+        color: "#ff4060",
+      },
+    },
+    "& .MuiInputLabel-root": {
+      color: "#3f51b5",
+    },
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#3f51b5",
+    },
+    "& .MuiInputBase-input": {
+      color: "#3f51b5",
+    },
+    "& .MuiFormLabel-root.Mui-error": {
+      color: "#ff4060",
+    },
+  },
+}));
 
 export default function Contact() {
+  const classes = useStyles();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
@@ -22,7 +116,7 @@ export default function Contact() {
     console.log("Email: ", email);
     console.log("Username: ", username);
     console.log("Message: ", message);
-    // Here you can add code to send the email, username and message to your server
+    // add code to send the email, username and message to your server
     // using an HTTP request or any other method that you prefer
     setEmail("");
     setUsername("");
@@ -30,120 +124,57 @@ export default function Contact() {
   };
 
   return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}
-    >
-      <div style={{ display: "flex", width: "50%" }}>
-        <div style={{ backgroundColor: "#222222", padding: "20px", flex: 1 }}>
-          <div
-            style={{
-              backgroundColor: "#333333",
-              padding: "20px",
-              marginBottom: "20px",
-              borderRadius: "10px",
-              transition: "all 0.3s ease-in-out",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#2C3E90")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#333333")
-            }
-          >
-            <h1
-              style={{
-                color: "#FFFFFF",
-                textAlign: "center",
-                textTransform: "uppercase",
-                fontSize: "36px",
-              }}
-            >
-              Contact
-            </h1>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label style={{ color: "#FFFFFF", marginBottom: "10px" }}>
-                Email:
-              </label>
-              <input
+    <div className={classes.container}>
+      <Card className={classes.root}>
+        <CardContent className={classes.content}>
+          <div className={classes.contactContainer}>
+            <Typography className={classes.contactTitle}>Contact Me</Typography>
+            <form onSubmit={handleSubmit} className={classes.form}>
+              <TextField
                 type="email"
                 value={email}
                 onChange={handleEmailChange}
-                style={{
-                  padding: "10px",
-                  marginBottom: "20px",
-                  borderRadius: "5px",
-                  border: "none",
-                  backgroundColor: "#333333",
-                  color: "#FFFFFF",
-                }}
+                label="Email*"
+                variant="outlined"
                 required
+                className={classes.textField}
               />
-              <label style={{ color: "#FFFFFF", marginBottom: "10px" }}>
-                Username:
-              </label>
-              <input
+              <TextField
                 type="text"
                 value={username}
                 onChange={handleUsernameChange}
-                style={{
-                  padding: "10px",
-                  marginBottom: "20px",
-                  borderRadius: "5px",
-                  border: "none",
-                  backgroundColor: "#333333",
-                  color: "#FFFFFF",
-                }}
+                label="Username*"
+                variant="outlined"
                 required
+                className={classes.textField}
               />
-              <label style={{ color: "#FFFFFF", marginBottom: "10px" }}>
-                Message:
-              </label>
-              <textarea
+              <TextField
                 value={message}
                 onChange={handleMessageChange}
-                style={{
-                  padding: "10px",
-                  marginBottom: "20px",
-                  borderRadius: "5px",
-                  border: "none",
-                  resize: "vertical",
-                  backgroundColor: "#333333",
-                  color: "#FFFFFF",
-                }}
+                label="Message*"
+                variant="outlined"
+                multiline
+                rows={5}
                 required
+                className={classes.textField}
               />
-              <button
+              <Button
                 type="submit"
-                style={{
-                  backgroundColor: "#333333",
-                  color: "#FFFFFF",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "none",
-                  transition: "all 0.3s ease-in-out",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#2C3E90")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "#333333")
-                }
+                variant="contained"
+                color="primary"
+                disableElevation
               >
                 Send
-              </button>
-            </div>
-          </form>
-        </div>
-        <div style={{ flex: 1, marginLeft: "20px" }}>
+              </Button>
+            </form>
+          </div>
           <img
             src="../images/selfie.png"
             alt="Profile"
-            style={{ width: "100%" }}
+            className={classes.image}
           />
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
