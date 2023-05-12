@@ -118,7 +118,6 @@ export default function PortfolioContainer() {
           <Typography variant="h6" className={classes.title}>
             Jacob
           </Typography>
-          <div className={classes.icon}>{/* Insert Icon here */}</div>
 
           <a
             href="https://github.com/jacobgoreham"

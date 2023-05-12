@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1),
     transition: "all 0.3s ease-in-out",
     "&:hover": {
-      backgroundColor: "#2C3E90",
+      backgroundColor: "#3f51b5",
     },
   },
   title: {
@@ -24,14 +24,20 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     fontSize: "36px",
     fontFamily: "Bruno Ace SC",
-    marginBottom: theme.spacing(3),
   },
   description: {
     color: "#FFFFFF",
     textAlign: "center",
     fontSize: "20px",
-    fontFamily: "Space Mono",
+    fontFamily: "Bruno Ace SC",
+    listStyle: "none",
     margin: theme.spacing(3),
+  },
+  list: {
+    transition: "all 0.3s ease-in-out",
+    "&:hover": {
+      color: "#3f51b5",
+    },
   },
   proficiencyTitle: {
     color: "#ff4060",
@@ -41,12 +47,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Bruno Ace SC",
   },
   proficiencyList: {
-    display: "flex",
+    display: "column",
     justifyContent: "center",
-    marginBottom: theme.spacing(3),
-  },
-  proficiencyItem: {
-    margin: `0 ${theme.spacing(2)}px`,
   },
 }));
 
@@ -63,31 +65,43 @@ export default function Home() {
       <div>
         <Typography variant="body1" className={classes.description}>
           My name is Jacob Goreham. I am a FullStack Developer with 1 year of
-          experience.
+          experience in the following:
         </Typography>
         <div className={classes.proficiencyList}>
           <div>
             <Typography variant="h2" className={classes.proficiencyTitle}>
               Front End Technologies
             </Typography>
-            <Typography variant="body1" className={classes.description}>
-              HTML, CSS, JavaScript, JQuery, Responsive Design, React, BootStrap
-            </Typography>
+
+            <ul className={classes.description}>
+              <li className={classes.list}>HTML</li>
+              <li className={classes.list}>CSS</li>
+              <li className={classes.list}>JavaScript</li>
+              <li className={classes.list}>JQuery</li>
+              <li className={classes.list}>Responsive Design</li>
+              <li className={classes.list}>React</li>
+              <li className={classes.list}>BootStrap</li>
+            </ul>
           </div>
           <div>
             <Typography variant="h2" className={classes.proficiencyTitle}>
               Back End Technologies
             </Typography>
-            <Typography variant="body1" className={classes.description}>
-              APIs, Node, Express, MySQL, Sequelize, MongoDB, Mongoose, REST,
-              GraphQL, MERN Stack
-            </Typography>
+            <ul className={classes.description}>
+              <li className={classes.list}>APIs</li>
+              <li className={classes.list}>Node</li>
+              <li className={classes.list}>Express</li>
+              <li className={classes.list}>MySQL</li>
+              <li className={classes.list}>Sequelize</li>
+              <li className={classes.list}>MongoDB</li>
+              <li className={classes.list}>Mongoose</li>
+              <li className={classes.list}>REST</li>
+              <li className={classes.list}>GraphQL</li>
+              <li className={classes.list}>MERN Stack</li>
+            </ul>
           </div>
         </div>
-        <Typography variant="body1" className={classes.description}>
-          I have worked on various projects including GitMovie, WaterWise, and
-          Note Pad.
-        </Typography>
+
         <Typography variant="body1" className={classes.description}>
           Jacob Goreham's the name and Codings my Game.
         </Typography>

@@ -87,7 +87,7 @@ const projects = [
     description:
       "Highlights: Javascript, Webpack, Express.js, Concurrently, Nodemon",
     imageSrc: "../images/screenshot1.png",
-    githubLink: "https://github.com/jacobgoreham/Jacobs-PWA",
+    githubLink: "https://jacobs-jate.herokuapp.com/",
   },
   {
     name: "Logo Generator",

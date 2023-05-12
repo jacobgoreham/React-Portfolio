@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
+    // height: "100vh",
   },
   contactContainer: {
     display: "flex",
@@ -128,7 +128,6 @@ export default function Contact() {
       )
       .then((response) => {
         console.log("Email sent successfully!", response.status, response.text);
-        // Add any further actions after successful email sending
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -137,8 +136,6 @@ export default function Contact() {
     console.log("Email: ", email);
     console.log("Username: ", username);
     console.log("Message: ", message);
-    // add code to send the email, username and message to your server
-    // using an HTTP request or any other method that you prefer
     setEmail("");
     setUsername("");
     setMessage("");
