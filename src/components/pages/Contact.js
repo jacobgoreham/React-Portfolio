@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import emailjs from "emailjs-com";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -113,6 +114,26 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    emailjs
+      .send(
+        "service_snv9lo5",
+        "template_rac7pwa",
+        {
+          from_email: email,
+          from_name: username,
+          message: message,
+        },
+        "0BrcVc9w_QWNgRp0N" // EmailJS user ID
+      )
+      .then((response) => {
+        console.log("Email sent successfully!", response.status, response.text);
+        // Add any further actions after successful email sending
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        // Handle error cases if necessary
+      });
     console.log("Email: ", email);
     console.log("Username: ", username);
     console.log("Message: ", message);
