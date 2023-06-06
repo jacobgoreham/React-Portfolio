@@ -102,6 +102,12 @@ const projects = [
     imageSrc: " ../images/screenshot6.png",
     githubLink: "https://github.com/jacobgoreham/jacobs-employee-tracker",
   },
+  {
+    name: "AutoInsta",
+    description: "Automate your Instagram Profile!",
+    imageSrc: " ../images/screenshot8.png",
+    githubLink: "https://limitless-taiga-26718.herokuapp.com/",
+  },
 ];
 //https://jacobs-note-taker.herokuapp.com/
 
