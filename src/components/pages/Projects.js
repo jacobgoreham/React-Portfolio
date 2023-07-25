@@ -1,5 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import screenshot1 from "../images/screenshot1.png"
+import screenshot2 from "../images/screenshot2.png"
+import screenshot3 from "../images/screenshot3.png"
+import screenshot4 from "../images/screenshot4.png"
+import screenshot5 from "../images/screenshot5.png"
+import screenshot6 from "../images/screenshot6.png"
+import screenshot7 from "../images/screenshot7.png"
+import screenshot8 from "../images/screenshot8.png"
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(0)",
     backgroundColor: "#222222",
     margin: "10px",
+    border: "4px solid",
+    borderImage: "linear-gradient(#f18137, #af24dd) 1",
+    animation: "$anim-border 2.5s ease-in infinite",
     "&:hover": {
       backgroundColor: "#3f51b5",
     },
@@ -57,6 +70,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10px",
     fontFamily: "Space Mono",
   },
+  "@keyframes anim-border": {
+    "50%": {
+      borderImage: "linear-gradient(360deg, #f18137, #af24dd) 1",
+    },
+  },
 }));
 
 const projects = [
@@ -64,21 +82,21 @@ const projects = [
     name: "Note Pad",
     description:
       "Note Pad is simply a place to keep all the notes you've taken!",
-    imageSrc: " ../images/screenshot4.png",
+    imageSrc: screenshot4,
     githubLink: "https://jacobs-note-taker.herokuapp.com/",
   },
   {
     name: "GitMovie",
     description:
       "GitMovie was another group project that turned out extremeley well!",
-    imageSrc: " ../images/screenshot3.png",
+    imageSrc: screenshot3,
     githubLink: "https://cmadrid48.github.io/gitMovie/",
   },
   {
     name: "WaterWise",
     description: "Highlights: CSS, Session, Authentification, HandleBars",
     //The Repo for 'the Goat Packs' water discussion board.
-    imageSrc: "../images/screenshot2.png",
+    imageSrc: screenshot2,
     githubLink: "https://github.com/sullivann7789/waterwise",
   },
 
@@ -86,28 +104,29 @@ const projects = [
     name: "Jacobs' JATE",
     description:
       "Highlights: Javascript, Webpack, Express.js, Concurrently, Nodemon",
-    imageSrc: "../images/screenshot1.png",
+    imageSrc: screenshot1,
     githubLink: "https://jacobs-jate.herokuapp.com/",
+  },
+  {
+    name: "AutoInsta",
+    description: "Automate your Instagram Profile!",
+    imageSrc: screenshot8,
+    githubLink: "https://limitless-taiga-26718.herokuapp.com/",
   },
   {
     name: "Logo Generator",
     description: "Stuck on a logo? Create a quick and easy logo here!",
-    imageSrc: " ../images/screenshot5.png",
+    imageSrc: screenshot5,
     githubLink: "https://github.com/jacobgoreham/jacobs-logo-generator",
   },
   {
     name: "Employee Tracker",
     description:
       "Manage your employees, departments, roles, and much much more!",
-    imageSrc: " ../images/screenshot6.png",
+    imageSrc: screenshot6,
     githubLink: "https://github.com/jacobgoreham/jacobs-employee-tracker",
   },
-  {
-    name: "AutoInsta",
-    description: "Automate your Instagram Profile!",
-    imageSrc: " ../images/screenshot8.png",
-    githubLink: "https://limitless-taiga-26718.herokuapp.com/",
-  },
+
 ];
 //https://jacobs-note-taker.herokuapp.com/
 

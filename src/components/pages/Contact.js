@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import emailjs from "emailjs-com";
+import selfie from "../images/selfie.png"
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -30,6 +31,33 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "36px",
     fontFamily: "Bruno Ace SC",
   },
+  submitButton: {
+    position: "relative",
+    overflow: "hidden",
+    height: "3rem",
+    padding: "0 2rem",
+    borderRadius: "1.5rem",
+    background: "#3d3a4e",
+    backgroundSize: "400%",
+    color: "#fff",
+    border: "none",
+    '&:hover::before': {
+      transform: "scaleX(1)",
+    },
+  },
+  submitButtonInnerCircle: {
+    content: '',
+    position: "absolute",
+    top: "0",
+    left: "0",
+    transform: "scaleX(0)",
+    transformOrigin: "0 50%",
+    width: "100%",
+    height: "inherit",
+    borderRadius: "inherit",
+    background: "linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%)",
+    transition: "all 0.475s",
+  },
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -44,10 +72,30 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   title: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    color: "#ff4060",
-    marginBottom: theme.spacing(2),
+    color: "#fff",
+    textAlign: "center",
+    textTransform: "uppercase",
+    fontSize: "36px",
+    fontFamily: "Bruno Ace SC",
+    width: "fit-content",
+    margin: "0 auto",
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(1), // Increase the padding
+    borderRadius: "5px", // Add border radius
+    background: "linear-gradient(-45deg, #ff4060, #3f51b5, #ff4060, #3f51b5)",
+    backgroundSize: "400% 400%",
+    animation: "$gradient 5s ease infinite",
+  },
+  "@keyframes gradient": {
+    "0%": {
+      backgroundPosition: "0 50%",
+    },
+    "50%": {
+      backgroundPosition: "100% 50%",
+    },
+    "100%": {
+      backgroundPosition: "0 50%",
+    },
   },
   form: {
     display: "flex",
@@ -61,8 +109,16 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "50%",
     height: "50%",
-    borderRadius: "50%",
-    marginLeft: "auto",
+    border: "4px solid",
+    borderImage: "linear-gradient(90deg, #f18137, #af24dd) 1",
+    animation: "$anim-border 2.5s ease-in infinite",
+    transition: "transform 0.3s ease-in-out", // Add transition for smooth hover effect
+  
+  },
+  "@keyframes anim-border": {
+    "50%": {
+      borderImage: "linear-gradient(360deg, #f18137, #af24dd) 1",
+    },
   },
   textField: {
     "& .MuiOutlinedInput-root": {
@@ -146,7 +202,7 @@ export default function Contact() {
       <Card className={classes.root}>
         <CardContent className={classes.content}>
           <div className={classes.contactContainer}>
-            <Typography className={classes.contactTitle}>Contact Me</Typography>
+            <Typography className={classes.title}>Contact Me</Typography>
             <form onSubmit={handleSubmit} className={classes.form}>
               <TextField
                 type="email"
@@ -176,18 +232,18 @@ export default function Contact() {
                 required
                 className={classes.textField}
               />
-              <Button
+             <Button
                 type="submit"
                 variant="contained"
-                color="primary"
-                disableElevation
+                className={classes.submitButton}
               >
+                <div className={classes.submitButtonInnerCircle} />
                 Send
               </Button>
             </form>
           </div>
           <img
-            src="../images/selfie.png"
+            src={selfie}
             alt="Profile"
             className={classes.image}
           />
