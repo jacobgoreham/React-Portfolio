@@ -204,6 +204,7 @@ export default function PortfolioContainer() {
       <AppBar position="static" className={classes.header}>
         <Toolbar className={classes.header}>
           <Button onClick={() => handlePageChange("Home")}>
+            
             <Typography variant="h6" className={classes.title}>
               Jacob
             </Typography>
