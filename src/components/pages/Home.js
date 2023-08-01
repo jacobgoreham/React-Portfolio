@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0",
     padding: ".25em 0 .325em",
     margin: theme.spacing(3),
-    textShadow: "0 0 80px rgba(255, 255, 255, 0.5)",
+    // textShadow: "0 0 80px rgba(255, 255, 255, 0.5)",
     background: "linear-gradient(45deg, #ff4060 45%, white 45%, white 55%, #ff4060 55%)",
     backgroundSize: "200% 200%",
     color: "transparent",
@@ -153,7 +153,7 @@ export default function AboutMe() {
           />
         </div>
         <Typography variant="body1" className={classes.animatedText}>
-          My name is Jacob Goreham. I've been coding for a year, and I've had expertise in
+          My name is Jacob Goreham. I've been coding for a full year, and I've had expertise in
           computers all my life. I'm ready to make a difference with code!
         </Typography>
       </div>
