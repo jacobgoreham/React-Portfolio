@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import resumePdf from "../images/Resume.pdf";  // Import the resume PDF
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -165,7 +166,7 @@ export default function Home() {
         </Typography>
         <Typography variant="body1" className={classes.description}>
           Download my resume:{" "}
-          <Link href="../images/Resume.pdf" color="primary" underline="none">
+          <Link href={resumePdf} color="primary" underline="none" target="_blank" rel="noopener noreferrer">
             Resume.pdf
           </Link>
         </Typography>

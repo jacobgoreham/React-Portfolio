@@ -126,6 +126,19 @@ const projects = [
     imageSrc: screenshot6,
     githubLink: "https://github.com/jacobgoreham/jacobs-employee-tracker",
   },
+  {
+    name: "Relentless Sportfishing",
+    description:
+      "Book a Trip today!",
+    imageSrc: screenshot3,
+    githubLink: "https://github.com/jacobgoreham/jacobs-employee-tracker",
+  },{
+    name: "Mustang Sportfishing",
+    description:
+      "Book a Trip today!",
+    imageSrc: screenshot3,
+    githubLink: "https://github.com/jacobgoreham/jacobs-employee-tracker",
+  },
 
 ];
 //https://jacobs-note-taker.herokuapp.com/

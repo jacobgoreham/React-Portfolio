@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       height: '100%',
       backgroundColor: 'black',
-      color: 'linear-gradient(to right, #ff4060, #3f51b5)',
+      color: '#ff4060',
       fontSize: '5em',
       animation: `$fadeOut 3s ${theme.transitions.easing.easeIn} forwards`,
       zIndex: 100,

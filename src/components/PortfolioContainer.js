@@ -154,29 +154,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PortfolioContainer() {
   const classes = useStyles();
-  const [currentPage, setCurrentPage] = useState("Home");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    setDrawerOpen(false);
-  };
+  // Create refs for each section
+  const homeRef = React.useRef(null);
+  const aboutRef = React.useRef(null);
+  const projectsRef = React.useRef(null);
+  const contactRef = React.useRef(null);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "Home":
-        return <Home />;
-      case "Resume":
-        return <About handlePageChange={handlePageChange} />;
-      case "Projects":
-        return <Projects />;
-      case "Contact":
-        return <Contact />;
-      // case "Shop":
-      //   return <Shop />;
-      default:
-        return <Home />;
+  const handleNavigationClick = (ref) => {
+    if (ref && ref.current) {
+      const topPosition = ref.current.offsetTop;
+      window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
+    setDrawerOpen(false);
   };
 
   const drawer = (
@@ -187,9 +178,14 @@ export default function PortfolioContainer() {
       onKeyDown={() => setDrawerOpen(false)}
     >
       <List>
-        {['Home', 'Resume', 'Projects', 'Contact'].map((text) => (
-          <ListItem button key={text} onClick={(event) => handlePageChange(text)}>
-            <ListItemText primary={text} classes={{ primary: classes.list }} />
+        {[
+          { name: 'Home', ref: homeRef },
+          { name: 'Resume', ref: aboutRef },
+          { name: 'Projects', ref: projectsRef },
+          { name: 'Contact', ref: contactRef }
+        ].map(({ name, ref }) => (
+          <ListItem button key={name} onClick={() => handleNavigationClick(ref)}>
+            <ListItemText primary={name} classes={{ primary: classes.list }} />
           </ListItem>
         ))}
       </List>
@@ -203,8 +199,7 @@ export default function PortfolioContainer() {
       </style>
       <AppBar position="static" className={classes.header}>
         <Toolbar className={classes.header}>
-          <Button onClick={() => handlePageChange("Home")}>
-            
+          <Button>
             <Typography variant="h6" className={classes.title}>
               Jacob
             </Typography>
@@ -219,7 +214,14 @@ export default function PortfolioContainer() {
         {drawer}
       </Drawer>
 
-      <div className={classes.page}>{renderPage()}</div>
+      <div className={classes.page}>
+        <div ref={homeRef}><Home /></div>
+        <div ref={aboutRef}><About /></div>
+        <div ref={projectsRef}><Projects /></div>
+        <div ref={contactRef}><Contact /></div>
+        {/* Uncomment this if you want the Shop page to be visible too */}
+        {/* <div ref={shopRef}><Shop /></div> */}
+      </div>
       
       <div
         className={classes.footer}
@@ -238,8 +240,6 @@ export default function PortfolioContainer() {
           </IconButton>
         </div>
       </div>
-
     </div>
   );
 }
-
